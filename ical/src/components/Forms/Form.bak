@@ -1,0 +1,77 @@
+import { Button, Stack, TextField, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { Calculate, Clear, Delete, Save } from "@mui/icons-material";
+
+const ButtonStyle = {
+    width: '45%'
+}
+const FormStyle = styled.div``
+
+interface FormProps {
+
+}
+
+interface FormState {
+    [key: string]: string
+}
+
+
+const Form = (props: FormProps): JSX.Element => {
+
+    //form data
+    const [data, setData] = useState<FormState>();
+    const handleFormChange = (evt: any) => {
+        console.log(evt);
+    }
+    const tempData = {
+        amount: ''
+    }
+    useEffect(() => {
+        setData(tempData);
+    }, []);
+
+    //from date
+    const [fromDate, setFromDate] = useState<Date | null>(new Date());
+    const handleFromDate = (date: Date | null) => {
+        setFromDate(date);
+    }
+
+    return (
+        <FormStyle>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Stack spacing={3}>
+                    <TextField id="outlined-basic"
+                        name="amount"
+                        label="Amount"
+                        type="number"
+                        inputProps={{
+                            step: "0.01"
+                        }}
+                        value={data?.amount}
+                        onChange={handleFormChange}
+                        variant="outlined" />
+                    <MobileDatePicker
+                        label="Date mobile"
+                        inputFormat="dd/MM/yyyy"
+                        value={fromDate}
+                        onChange={handleFromDate}
+                        renderInput={(params) => <TextField {...params} name="fromdate"/>}
+                    />
+
+                    <Stack direction="row" justifyContent="space-around" alignItems="center" spacing={2}>
+                        <Button variant="contained" style={ButtonStyle} color="success" startIcon={<Calculate />}>Calculate</Button>
+                        <Button variant="contained" style={ButtonStyle} startIcon={<Clear />}>Clear</Button>
+                    </Stack>
+                    
+                </Stack>
+
+            </LocalizationProvider>
+        </FormStyle>
+    )
+}
+
+export default Form;

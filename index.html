@@ -9,7 +9,7 @@
     <title>Kiwi Security Home</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -19,38 +19,40 @@
         crossorigin="anonymous"></script>
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-        <script src="localforage.min.js" type="text/javascript"></script>
+    <script src="localforage.min.js" type="text/javascript"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="styles.css?t=<?=time()?>" type="text/css"/>  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css?t=<?=time()?>" type="text/css" />
 </head>
 
 <body ng-app="ks-app">
     <div style="width: 100%; margin: 0 auto;" ng-controller="ks-ctrl">
 
         <div class="text-center">
-            <img src="ks.png" style="width: 160px;"/>
+            <img src="ks.png" style="width: 160px;" />
         </div>
         <form name="frmAsset" id="frmAsset" style="padding: 10px;">
             <div class="card" style="margin-bottom: 10px;">
                 <div class="card-body">
                     <h5 class="card-title theme-color">Asset Details..</h5>
-                    
+
                     <p class="card-text">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="AssetId">Asset Id</label>
-                                <input type="text" name="AssetId" id="AssetId" ng-model="tablerow.assetid" class="form-control" />
+                                <input type="text" name="AssetId" id="AssetId" ng-model="tablerow.assetid"
+                                    class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="AssetId">Lock Type</label>
-                                <select name="selectbox" id="demoSelectbox" class="form-select" ng-model="tablerow.locktype">
+                                <select name="selectbox" id="demoSelectbox" class="form-select"
+                                    ng-model="tablerow.locktype">
                                     <option value="">Choose an option</option>
                                     <option value="Maglock">Maglock</option>
                                     <option value="Mortise lock">Mortise lock</option>
@@ -64,19 +66,22 @@
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="AssetId">Door Number / Name</label>
-                                <input type="text" name="oorNumber/Name" id="doorno" class="form-control" ng-model="tablerow.doorno"/>
+                                <input type="text" name="oorNumber/Name" id="doorno" class="form-control"
+                                    ng-model="tablerow.doorno" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="DoorLocation">Door Location</label>
-                                <textarea class="form-control" id="doorloc" name="DoorLocation" ng-model="tablerow.doorloc"></textarea>
+                                <textarea class="form-control" id="doorloc" name="DoorLocation"
+                                    ng-model="tablerow.doorloc"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="AssetId">Door Composition</label>
-                                <select name="DoorComposition" id="DoorComposition" class="form-select" ng-model="tablerow.doorcomp">
+                                <select name="DoorComposition" id="DoorComposition" class="form-select"
+                                    ng-model="tablerow.doorcomp">
                                     <option value="">Choose an option</option>
                                     <option value="Wooden door">Wooden Door</option>
                                     <option value="Glass door">Glass Door</option>
@@ -101,13 +106,15 @@
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="TechnicalNotes">Technical Notes</label>
-                                <textarea class="form-control" id="TechnicalNotes" name="TechnicalNotes" ng-model="tablerow.technicalnotes"></textarea>
+                                <textarea class="form-control" id="TechnicalNotes" name="TechnicalNotes"
+                                    ng-model="tablerow.technicalnotes"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="date">Date</label>
-                                <input type="text" class="form-control" id="date" name="Date" ng-model="tablerow.date"/>
+                                <input type="text" class="form-control" id="date" name="Date"
+                                    ng-model="tablerow.date" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
@@ -121,139 +128,142 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="form-group">
                                 <label for="Status">Status</label>
-                                <input type="text" name="Status" id="Status" class="form-control" ng-model="tablerow.status"/>
+                                <input type="text" name="Status" id="Status" class="form-control"
+                                    ng-model="tablerow.status" />
                             </div>
                         </div>
                     </div>
                     </p>
-                
+
                     <h5 class="card-title theme-color">Test Readings</h5>
                     <p>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="entry">Entry Device</label>
-                                    <select id="entry" name="entry" class="form-select" ng-model="tablerow.entrydevice">
-                                        <option value="">Choose an option</option>
-                                        <option value="Swipe">Swipe</option>
-                                        <option value="Swipe and Intercom">Swipe & Intercom</option>
-                                        <option value="Pinpad">Pinpad</option>
-                                        <option value="Key">Key</option>
-                                        <option value="Sensor">Sensor</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="entry">Lock Condition</label>
-                                    <select id="lockcond" name="lockcond" class="form-select" ng-model="tablerow.lockcond">
-                                        <option value="">Choose an option</option>
-                                        <option value="Good">Good</option>
-                                        <option value="Bad">Bad</option>
-                                        <option value="Service required">Service required</option>
-                                        <option value="NA">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="pivot">Pivot & Hinges</label>
-                                    <select id="pivot" name="pivot" class="form-select" ng-model="tablerow.pivot">
-                                        <option value="">Choose an option</option>
-                                        <option value="Good">Good</option>
-                                        <option value="Bad">Bad</option>
-                                        <option value="Service required">Service required</option>
-                                        <option value="NA">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="hadles">Handles & Push Buttons</label>
-                                    <select id="handles" name="handles" class="form-select" ng-model="tablerow.handles">
-                                        <option value="">Choose an option</option>
-                                        <option value="Good">Good</option>
-                                        <option value="Bad">Bad</option>
-                                        <option value="Service required">Service required</option>
-                                        <option value="NA">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="doorclosure">Door Closure Condition</label>
-                                    <select id="doorclosure" name="doorclosure" class="form-select" ng-model="tablerow.doorclosure">
-                                        <option value="">Choose an option</option>
-                                        <option value="Good">Good</option>
-                                        <option value="Bad">Bad</option>
-                                        <option value="Service required">Service required</option>
-                                        <option value="NA">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="edrtest">EDR Test</label>
-                                    <select id="edrtest" name="edrtest" class="form-select" ng-model="tablerow.edrtest">
-                                        <option value="">Choose an option</option>
-                                        <option value="Pass">Pass</option>
-                                        <option value="Fail">Fail</option>
-                                        <option value="NA">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="exitdevice">Exit Device</label>
-                                    <select id="exitdevice" name="exitdevice" class="form-select" ng-model="tablerow.exitdevice">
-                                        <option value="">Choose an option</option>
-                                        <option value="REX">REX</option>
-                                        <option value="Push Button">Push Button</option>
-                                        <option value="Free Egress">Free Egress</option>
-                                        <option value="Sensors">Sensors</option>
-                                        <option value="Swipe Card">Swipe Card</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="egress">Egress path clear and un-obstructed</label>
-                                    <select id="egress" name="egress" class="form-select" ng-model="tablerow.egress">
-                                        <option value="">Choose an option</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                        <option value="Not Applicable">NA</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="bwof">BWOF Book Sign</label>
-                                    <select id="bwof" name="bwof" class="form-select" ng-model="tablerow.bwof">
-                                        <option value="">Choose an option</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                        <option value="Not on Site">Not on Site</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                <div class="form-group">
-                                    <label for="bwof">Job Type</label>
-                                    <select id="job_type" name="job_type" class="form-select" ng-model="tablerow.job_type">
-                                        <option value="">Choose an option</option>
-                                        <option value="IQP Testing">IQP Testing</option>
-                                        <option value="Service">Service</option>
-                                    </select>
-                                </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="entry">Entry Device</label>
+                                <select id="entry" name="entry" class="form-select" ng-model="tablerow.entrydevice">
+                                    <option value="">Choose an option</option>
+                                    <option value="Swipe">Swipe</option>
+                                    <option value="Swipe and Intercom">Swipe & Intercom</option>
+                                    <option value="Pinpad">Pinpad</option>
+                                    <option value="Key">Key</option>
+                                    <option value="Sensor">Sensor</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="entry">Lock Condition</label>
+                                <select id="lockcond" name="lockcond" class="form-select" ng-model="tablerow.lockcond">
+                                    <option value="">Choose an option</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Bad">Bad</option>
+                                    <option value="Service required">Service required</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="pivot">Pivot & Hinges</label>
+                                <select id="pivot" name="pivot" class="form-select" ng-model="tablerow.pivot">
+                                    <option value="">Choose an option</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Bad">Bad</option>
+                                    <option value="Service required">Service required</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="hadles">Handles & Push Buttons</label>
+                                <select id="handles" name="handles" class="form-select" ng-model="tablerow.handles">
+                                    <option value="">Choose an option</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Bad">Bad</option>
+                                    <option value="Service required">Service required</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="doorclosure">Door Closure Condition</label>
+                                <select id="doorclosure" name="doorclosure" class="form-select"
+                                    ng-model="tablerow.doorclosure">
+                                    <option value="">Choose an option</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Bad">Bad</option>
+                                    <option value="Service required">Service required</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="edrtest">EDR Test</label>
+                                <select id="edrtest" name="edrtest" class="form-select" ng-model="tablerow.edrtest">
+                                    <option value="">Choose an option</option>
+                                    <option value="Pass">Pass</option>
+                                    <option value="Fail">Fail</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="exitdevice">Exit Device</label>
+                                <select id="exitdevice" name="exitdevice" class="form-select"
+                                    ng-model="tablerow.exitdevice">
+                                    <option value="">Choose an option</option>
+                                    <option value="REX">REX</option>
+                                    <option value="Push Button">Push Button</option>
+                                    <option value="Free Egress">Free Egress</option>
+                                    <option value="Sensors">Sensors</option>
+                                    <option value="Swipe Card">Swipe Card</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="egress">Egress path clear and un-obstructed</label>
+                                <select id="egress" name="egress" class="form-select" ng-model="tablerow.egress">
+                                    <option value="">Choose an option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Not Applicable">NA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="bwof">BWOF Book Sign</label>
+                                <select id="bwof" name="bwof" class="form-select" ng-model="tablerow.bwof">
+                                    <option value="">Choose an option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Not on Site">Not on Site</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <div class="form-group">
+                                <label for="bwof">Job Type</label>
+                                <select id="job_type" name="job_type" class="form-select" ng-model="tablerow.job_type">
+                                    <option value="">Choose an option</option>
+                                    <option value="IQP Testing">IQP Testing</option>
+                                    <option value="Service">Service</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     </p>
                 </div>
                 <div class="card-footer text-center">
@@ -261,8 +271,8 @@
                 </div>
             </div>
         </form>
-        
-        
+
+
 
 
         <div style="padding: 10px;">
@@ -272,58 +282,61 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered ks-table" id="export-table" data-cols-width="10,18,18,18,18,18,50">
+                        <table class="table table-bordered ks-table" id="export-table"
+                            data-cols-width="10,18,18,18,18,18,50">
                             <thead>
                                 <tr height="100px" data-height="100">
                                     <th colspan="6" valign="top" data-a-v="top" data-a-wrap="true">
-                                        <div style="margin-bottom: -25px;" class="theme-color"><b>Kiwi Security Limited</b></div><br>
-                                        <div style="margin-bottom: -25px;" >206/8 Airdale Street</div><br>
-                                        <div style="margin-bottom: -25px;" >Auckland CBD</div><br>
-                                        <div style="margin-bottom: -25px;" >Auckland 1010</div><br>
-                                        <div style="margin-bottom: -25px;" >Phone: 0800 031 330</div><br>
+                                        <div style="margin-bottom: -25px;" class="theme-color"><b>Kiwi Security
+                                                Limited</b></div><br>
+                                        <div style="margin-bottom: -25px;">206/8 Airdale Street</div><br>
+                                        <div style="margin-bottom: -25px;">Auckland CBD</div><br>
+                                        <div style="margin-bottom: -25px;">Auckland 1010</div><br>
+                                        <div style="margin-bottom: -25px;">Phone: 0800 031 330</div><br>
                                         <div>Email: admin@kiwisecurity.co.nz</div>
                                     </th>
                                     <th colspan="7" data-a-v="top" data-a-wrap="true">
                                         <div style="max-width: 200px; text-align: left;">
                                             Asset Record - Job No.<br>
-                                            <span ng-hide="true" >{{ jobno }}</span>
-                                            <input type="text" class="ks-input" id="jobno" ng-model="jobno"/>
+                                            <span ng-hide="true">{{ jobno }}</span>
+                                            <input type="text" class="ks-input" id="jobno" ng-model="jobno" />
                                             <br>
-                                            Site Name: <span ng-hide="true" >{{ sitename }}</span>
+                                            Site Name: <span ng-hide="true">{{ sitename }}</span>
                                             <br>
-                                            <input type="text" class="ks-input" ng-model="sitename" id="sitename"/>
+                                            <input type="text" class="ks-input" ng-model="sitename" id="sitename" />
                                         </div>
                                     </th>
                                     <th colspan="7" valign="top" data-a-v="top" data-a-wrap="true">
                                         <div>
-					                        <div style="margin-bottom: -25px;">
-                                                Inspection Date: <span ng-hide="true" id="spanInspectionDate">{{inspectiondate}}</span>
-                                                <input type="text" class="ks-input" id="inspectiondate"/>
+                                            <div style="margin-bottom: -25px;">
+                                                Inspection Date: <span ng-hide="true"
+                                                    id="spanInspectionDate">{{inspectiondate}}</span>
+                                                <input type="text" class="ks-input" id="inspectiondate" />
                                             </div>
                                             <br>
                                             <div style="margin-bottom: -25px;">
                                                 Contact: <span ng-hide="true" id="spanContact"></span>
-                                                <input type="text" class="ks-input" id="contact"/>
+                                                <input type="text" class="ks-input" id="contact" />
                                             </div>
                                             <br>
                                             <div style="margin-bottom: -25px;">
-                                                Phone:  <span ng-hide="true"  id="spanPhone"></span>
-                                                <input type="text" class="ks-input" id="phone"/>
+                                                Phone: <span ng-hide="true" id="spanPhone"></span>
+                                                <input type="text" class="ks-input" id="phone" />
                                             </div>
                                             <br>
                                             <div style="margin-bottom: -25px;">
-                                                Installer:  <span ng-hide="true" id="spanInstaller"></span>
-                                                <input type="text" class="ks-input" id="installer"/>
+                                                Installer: <span ng-hide="true" id="spanInstaller"></span>
+                                                <input type="text" class="ks-input" id="installer" />
                                             </div>
                                             <br>
                                             <div style="margin-bottom: -25px;">
-                                                Cabinet Location:  <span ng-hide="true" id="spanLocation"></span>
-                                                <input type="text" class="ks-input " id="location"/>
+                                                Cabinet Location: <span ng-hide="true" id="spanLocation"></span>
+                                                <input type="text" class="ks-input " id="location" />
                                             </div>
                                             <br>
                                             <div style="margin-bottom: -25px;">
-                                                Make:  <span ng-hide="true" id="spanMake"></span>
-                                                <input type="text" class="ks-input" id="make"/>
+                                                Make: <span ng-hide="true" id="spanMake"></span>
+                                                <input type="text" class="ks-input" id="make" />
                                             </div>
                                         </div>
                                     </th>
@@ -332,8 +345,9 @@
                                     <th colspan="20" data-fill-color="EEEEEEOO">
                                         <div>
                                             Asset Register - SMA- SS-<span ng-hide="true">{{ssversion}}</span>
-                                            <input type="text" class="ks-input" ng-model="ssversion" id="ssversion" placeholder="3.1"/>
-                                             (IQP Inspection, Maintenance and Reporting)
+                                            <input type="text" class="ks-input" ng-model="ssversion" id="ssversion"
+                                                placeholder="3.1" />
+                                            (IQP Inspection, Maintenance and Reporting)
                                         </div>
                                     </th>
                                 </tr>
@@ -341,7 +355,7 @@
                                     <th colspan="10" data-fill-color="FFFFCCOO" align="center">Asset Details</th>
                                     <th colspan="10" data-fill-color="FFFFCCOO" align="center">Test Readings</th>
                                 </tr>
-                                <tr> 
+                                <tr>
                                     <th>Assert Id</th>
                                     <th>Lock Type</th>
                                     <th>Door Number / Name</th>
@@ -366,29 +380,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr data-height="50" ng-repeat="t in table">
-                                        <td data-a-v="top">{{ t.assetid }}</td>
-                                        <td data-a-v="top">{{ t.locktype }}</td>
-                                        <td data-a-v="top">{{ t.doorno }}</td>
-                                        <td data-a-v="top">{{ t.doorloc }}</td>
-                                        <td data-a-v="top">{{ t.doorcomp }}</td>
-                                        <td data-a-v="top">{{ t.edr }}</td>
-                                        <td data-a-v="top" data-a-wrap="true">{{ t.technicalnotes }}</td>
-                                        <td data-a-v="top">{{ t.date }}</td>
-                                        <td data-a-v="top">{{ t.services }}</td>
-                                        <td data-a-v="top">{{ t.status }}</td>
+                                <tr data-height="50" ng-repeat="t in table">
+                                    <td data-a-v="top">{{ t.assetid }}</td>
+                                    <td data-a-v="top">{{ t.locktype }}</td>
+                                    <td data-a-v="top">{{ t.doorno }}</td>
+                                    <td data-a-v="top">{{ t.doorloc }}</td>
+                                    <td data-a-v="top">{{ t.doorcomp }}</td>
+                                    <td data-a-v="top">{{ t.edr }}</td>
+                                    <td data-a-v="top" data-a-wrap="true">{{ t.technicalnotes }}</td>
+                                    <td data-a-v="top">{{ t.date }}</td>
+                                    <td data-a-v="top">{{ t.services }}</td>
+                                    <td data-a-v="top">{{ t.status }}</td>
 
-                                        <td data-a-v="top">{{ t.entrydevice }}</td>
-                                        <td data-a-v="top">{{ t.lockcond }}</td>
-                                        <td data-a-v="top">{{ t.pivot }}</td>
-                                        <td data-a-v="top">{{ t.handles }}</td>
-                                        <td data-a-v="top">{{ t.doorclosure }}</td>
-                                        <td data-a-v="top">{{ t.edrtest }}</td>
-                                        <td data-a-v="top">{{ t.exitdevice }}</td>
-                                        <td data-a-v="top">{{ t.egress }}</td>
-                                        <td data-a-v="top">{{ t.bwof }}</td>
-                                        <td data-a-v="top">{{ t.job_type }}</td>
-                                    </tr>
+                                    <td data-a-v="top">{{ t.entrydevice }}</td>
+                                    <td data-a-v="top">{{ t.lockcond }}</td>
+                                    <td data-a-v="top">{{ t.pivot }}</td>
+                                    <td data-a-v="top">{{ t.handles }}</td>
+                                    <td data-a-v="top">{{ t.doorclosure }}</td>
+                                    <td data-a-v="top">{{ t.edrtest }}</td>
+                                    <td data-a-v="top">{{ t.exitdevice }}</td>
+                                    <td data-a-v="top">{{ t.egress }}</td>
+                                    <td data-a-v="top">{{ t.bwof }}</td>
+                                    <td data-a-v="top">{{ t.job_type }}</td>
+                                </tr>
                                 </tr>
                             </tbody>
                         </table>
@@ -398,11 +412,11 @@
                     <button type="button" ng-click="resetTable()" style="float: left">Reset</button>
                     <button type="button" class="btn btn-theme" ng-click="export()">Export</button>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
-    
+
 
     <script type="text/javascript" src="tableToExcel.js"></script>
     <script type="text/javascript" src="ks.js?t=<?=time()?>"></script>
