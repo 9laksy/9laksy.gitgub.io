@@ -5,7 +5,7 @@ import {MobileDatePicker} from '@mui/x-date-pickers/MobileDatePicker';
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {Calculate, Clear} from "@mui/icons-material";
-import { TotalHead } from '../Styles';
+import { TotalHead } from '../../Styles';
 import {
     ButtonStyle,
     dateField,
@@ -13,7 +13,7 @@ import {
     textColor,
     textField,
     textFieldLabel
-} from "../Styles/commons";
+} from "../../Styles/commons";
 import {calculateInterest, getDays} from "../../Utils/Functions";
 import {orange} from "@mui/material/colors";
 
