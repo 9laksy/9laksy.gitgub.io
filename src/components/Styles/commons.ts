@@ -1,3 +1,4 @@
+
 //Button width for Interest Cal form
 export const ButtonStyle = {
     width: '45%'
@@ -41,5 +42,18 @@ export const textFieldLabel = () => {
             fontSize: 18,
             fontWeight: 'bold'
         }
+    }
+}
+
+export const textColor = {
+    color: 'rgb(255 100 0)'
+}
+export const totalHead = {
+    minWidth: '90px'
+}
+export const totalData = {
+    before: {
+        content: '20B9',
+        marginRight: '4px'
     }
 }

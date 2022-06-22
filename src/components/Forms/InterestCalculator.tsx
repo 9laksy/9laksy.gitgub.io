@@ -1,18 +1,25 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-
-import {Box, Button, Stack, TextField, Typography} from "@mui/material";
+import {Button, Stack, TextField, Typography} from "@mui/material";
 import {MobileDatePicker} from '@mui/x-date-pickers/MobileDatePicker';
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {Calculate, Clear} from "@mui/icons-material";
-import {ButtonStyle, dateField, dateFieldLabel, textField, textFieldLabel} from "../Styles/commons";
-import {calculateInterest, getDays, getFromDate} from "../Utils/Functions";
+import { TotalHead } from '../Styles';
+import {
+    ButtonStyle,
+    dateField,
+    dateFieldLabel,
+    textColor,
+    textField,
+    textFieldLabel
+} from "../Styles/commons";
+import {calculateInterest, getDays} from "../../Utils/Functions";
+import {orange} from "@mui/material/colors";
 
 
 const ICal = styled.div`
 `;
-
 
 interface InterestCalculatorProps {
 }
@@ -29,8 +36,8 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
         days: '',
         fromdate: null,
         todate: null,
-        interest: '',
-        total: ''
+        interest: '0.00',
+        total: '0.00'
     }
 
     const [state, setState] = useState<FormData>(formData);
@@ -122,30 +129,38 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
 
 
                     <MobileDatePicker
-                        label="Days from"
+                        label="Date from"
                         inputFormat="dd/MM/yyyy"
                         value={state.fromdate}
                         onChange={handleFromDateChange}
                         onAccept={handleDays}
                         className={"test"}
-                        renderInput={(params) => <TextField inputProps={dateField()} InputLabelProps={dateFieldLabel()} {...params} id={"from-date"} name="fromdate"/>}
+                        renderInput={(params) => <TextField inputProps={dateField()}
+                                                            InputLabelProps={dateFieldLabel()} {...params}
+                                                            id={"from-date"} name="fromdate"/>}
 
                     />
 
                     <MobileDatePicker
-                        label="Days to"
+                        label="Date to"
                         inputFormat="dd/MM/yyyy"
                         value={state.todate}
                         onChange={handleToDateChange}
                         onAccept={handleDays}
-                        renderInput={(params) => <TextField inputProps={dateField()} InputLabelProps={dateFieldLabel()} {...params} id={"to-date"} name="todate"/>}
+                        renderInput={(params) => <TextField inputProps={dateField()}
+                                                            InputLabelProps={dateFieldLabel()} {...params}
+                                                            id={"to-date"} name="todate"/>}
                     />
 
                     <Typography variant="h6">
-                        Interest: {state.interest}
+                        <Stack direction="row" spacing={2}>
+                            <TotalHead>Interest:</TotalHead><div style={textColor} className={"total-data"}>{state.interest}</div>
+                        </Stack>
                     </Typography>
                     <Typography variant="h6">
-                        Total: {state.total}
+                        <Stack direction="row" spacing={2}>
+                            <TotalHead>Total:</TotalHead> <div style={textColor} className={"total-data"}>{state.total}</div>
+                        </Stack>
                     </Typography>
 
                     <Stack direction="row" justifyContent="space-around" alignItems="center" spacing={2}>
@@ -154,7 +169,7 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
                                 onClick={handleCalculate}
                                 startIcon={<Calculate/>}>Calculate</Button>
                         <Button onClick={handleClear} variant="contained" style={ButtonStyle}
-                                startIcon={<Clear/>}>Clear</Button>
+                                startIcon={<Clear/>} color={"error"}>Clear</Button>
                     </Stack>
                 </Stack>
             </LocalizationProvider>

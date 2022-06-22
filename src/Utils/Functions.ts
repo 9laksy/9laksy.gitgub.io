@@ -29,8 +29,8 @@ export function calculateInterest(data: FormData) {
     let Amount = amount + SI;
 
     let result = {
-        interest: SI,
-        amount: Amount
+        interest: SI.toLocaleString(undefined, {maximumFractionDigits: 2, minimumFractionDigits: 2}),
+        amount: Amount.toLocaleString(undefined, {maximumFractionDigits: 2, minimumFractionDigits: 2}),
     }
     console.log(result);
     return result;
