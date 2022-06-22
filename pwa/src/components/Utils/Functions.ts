@@ -3,11 +3,14 @@ export function getFromDate(): Date {
 }
 
 
-export function getDays(fromdate: Date | null, todate: Date | null): number {
+export function getDays(fromdate: Date | string, todate: Date | string): number {
     if (fromdate !== null && todate !== null) {
-        let DiffInTime = todate.getTime() - fromdate.getTime();
-        let DiffInDays = DiffInTime / (1000 * 3600 * 24);
-        return Math.round(DiffInDays);
+        if(typeof todate !== 'string' && typeof fromdate !== 'string') {
+            let DiffInTime = todate.getTime() - fromdate.getTime();
+            let DiffInDays = DiffInTime / (1000 * 3600 * 24);
+            return Math.round(DiffInDays);
+        }
+        return 0;
     }
     return 0;
 }
