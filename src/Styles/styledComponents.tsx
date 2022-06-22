@@ -1,9 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-export const TotalHead = styled.div`
-    min-width: 90px
-`;
+//Normal styles
 export const ButtonStyle = {
-    width: '45%'
+    width: "45%"
 }
+
+export const TextColor = {
+    color: "rgb(255, 100, 0)"
+}
+
+
+
+
+
+
+//Styled Component
+export const TotalHead = styled.div`
+    min-width: 90px;
+`;
+
+export const TotalData = styled.div`
+    color: rgb(255, 100, 0);
+    &::before {
+        content: "\20B9";
+        margin-right: 4px;
+    }
+`;

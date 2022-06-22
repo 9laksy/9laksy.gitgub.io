@@ -1,7 +1,9 @@
-import { TotalHead, ButtonStyle } from "./styledComponents";
+import { TotalHead, TotalData, ButtonStyle, TextColor } from "./styledComponents";
 
 
 export {
     TotalHead,
-    ButtonStyle
+    ButtonStyle,
+    TotalData,
+    TextColor
 }

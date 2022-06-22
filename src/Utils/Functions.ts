@@ -5,7 +5,7 @@ export function getFromDate(): Date {
 
 export function getDays(fromdate: Date | string, todate: Date | string): number {
     if (fromdate !== null && todate !== null) {
-        if(typeof todate !== 'string' && typeof fromdate !== 'string') {
+        if (typeof todate !== 'string' && typeof fromdate !== 'string') {
             let DiffInTime = todate.getTime() - fromdate.getTime();
             let DiffInDays = DiffInTime / (1000 * 3600 * 24);
             return Math.round(DiffInDays);
@@ -28,9 +28,15 @@ export function calculateInterest(data: FormData) {
     let SI = round(((amount * R) * days));
     let Amount = amount + SI;
 
+    console.log(new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR'
+    }).format(Amount));
+
+
     let result = {
-        interest: SI.toLocaleString(undefined, {maximumFractionDigits: 2, minimumFractionDigits: 2}),
-        amount: Amount.toLocaleString(undefined, {maximumFractionDigits: 2, minimumFractionDigits: 2}),
+        interest: getINRFormat(SI),
+        amount: getINRFormat(Amount),
     }
     console.log(result);
     return result;
@@ -38,5 +44,12 @@ export function calculateInterest(data: FormData) {
 
 
 function round(num: number): number {
-    return Math.ceil(num * 100)/100;
+    return Math.ceil(num * 100) / 100;
+}
+
+function getINRFormat(arg: number): string {
+    return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR'
+    }).format(arg);
 }
