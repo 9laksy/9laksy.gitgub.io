@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
 import PageWrapper from './components/PageWrapper';
-import InterestCalculator from './components/Forms/InterestCalculator';
 import { Card, CardContent } from './components/Card';
+import Calculator from './components/Forms';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <PageWrapper>
         <Card>
           <CardContent>
-            <InterestCalculator />
+            <Calculator />
           </CardContent>
         </Card>
       </PageWrapper>

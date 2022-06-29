@@ -1,9 +1,18 @@
+import moment from 'moment';
+
+export function formatDate(date: Date | null): String {
+    if (date === null) {
+        return "";
+    }
+    return moment(date).format("DD-MM-YYYY");
+}
+
 export function getFromDate(): Date {
     return new Date(new Date().setFullYear(new Date().getFullYear() - 1))
 }
 
 
-export function getDays(fromdate: Date | string, todate: Date | string): number {
+export function getDays(fromdate: Date | null, todate: Date | null): number {
     if (fromdate !== null && todate !== null) {
         if (typeof todate !== 'string' && typeof fromdate !== 'string') {
             let DiffInTime = todate.getTime() - fromdate.getTime();
@@ -28,17 +37,10 @@ export function calculateInterest(data: FormData) {
     let SI = round(((amount * R) * days));
     let Amount = amount + SI;
 
-    console.log(new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR'
-    }).format(Amount));
-
-
     let result = {
         interest: getINRFormat(SI),
         amount: getINRFormat(Amount),
     }
-    console.log(result);
     return result;
 }
 
@@ -52,4 +54,12 @@ function getINRFormat(arg: number): string {
         style: 'currency',
         currency: 'INR'
     }).format(arg);
+}
+
+
+
+export function convertToSlug(val: String): string {
+    return val.toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
 }

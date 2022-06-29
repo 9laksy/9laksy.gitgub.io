@@ -13,7 +13,7 @@ import {
     textField,
     textFieldLabel
 } from "../../Styles/commons";
-import { calculateInterest, getDays } from "../../Utils/Functions";
+import { calculateInterest, formatDate, getDays } from "../../Utils/Functions";
 import { defaultFormData } from "./FormData";
 
 
@@ -30,6 +30,8 @@ interface FormData {
 const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
 
     const [state, setState] = useState<FormData>(defaultFormData);
+    const [open, setOpen] = useState(false);
+    const [fromdate, setFromdate] = useState<Date>(new Date());
 
     const handleChange = (evt: any) => {
         const value = evt.target.value;
@@ -41,9 +43,11 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
 
     const handleFromDateChange = (date: Date | null) => {
         let days = getDays(state.fromdate, state.todate);
+        let formattedDate = formatDate(date);
         setState({
             ...state,
             fromdate: date,
+            strFromDate: formattedDate,
             days: days
         });
     }
@@ -70,6 +74,14 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
 
     const handleClear = () => {
         setState(defaultFormData);
+    }
+
+    const openDatePicker = (evt: any) => {
+        let field = evt.target.name;
+        let dateField = field.split("-")[1];
+        if(dateField === "fromdate") {
+            setOpen(true);
+        }
     }
 
     return (
@@ -111,12 +123,27 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
                         variant="outlined" />
 
                     <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={0}>
+                        <TextField id="date-from"
+                            name="field-fromdate"
+                            label="Date From"
+                            InputLabelProps={textFieldLabel()}
+                            type="text"
+                            inputProps={dateField()}
+                            onClick={openDatePicker}
+                            value={state.strFromDate}
+                            variant="outlined" />
+                    </Stack>
+
+                    <div style={{display: 'none'}}>
                         <MobileDatePicker
+                            open={open}
+                            onOpen={() => setOpen(true)}
+                            onClose={() => setOpen(false)}
+                            closeOnSelect={true}
                             label="Date from"
                             inputFormat="dd/MM/yyyy"
-                            value={state.fromdate}
-                            onChange={handleFromDateChange}
-                            className={"test"}
+                            value={fromdate}
+                            onChange={() => setFromdate}
                             renderInput={(params) => <TextField inputProps={dateField()}
                                 InputLabelProps={dateFieldLabel()} {...params}
                                 id={"from-date"} name="fromdate" />}
@@ -133,7 +160,7 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
                                 InputLabelProps={dateFieldLabel()} {...params}
                                 id={"to-date"} name="todate" />}
                         />
-                    </Stack>
+                    </div>
                     <Typography variant="h6">
                         <Stack direction="row" spacing={2}>
                             <TotalHead>Interest:</TotalHead>

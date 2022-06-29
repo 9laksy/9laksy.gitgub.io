@@ -66,6 +66,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "moment": "^2.29.3"
   }
 }
