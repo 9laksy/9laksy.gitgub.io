@@ -31,7 +31,6 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
 
     const [state, setState] = useState<FormData>(defaultFormData);
 
-
     const handleChange = (evt: any) => {
         const value = evt.target.value;
         setState({
@@ -41,44 +40,37 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
     }
 
     const handleFromDateChange = (date: Date | null) => {
+        let days = getDays(state.fromdate, state.todate);
         setState({
             ...state,
-            fromdate: date
+            fromdate: date,
+            days: days
         });
     }
 
     const handleToDateChange = (date: Date | null) => {
+        let days = getDays(state.fromdate, state.todate);
         setState({
             ...state,
-            todate: date
+            todate: date,
+            days: days
         });
     }
 
-    const handleDays = () => {
-        let days = getDays(state.fromdate, state.todate);
-        if (days > 0) {
-            setState({
-                ...state,
-                days: days
-            });
-        }
-    }
-
     const handleCalculate = () => {
+        let days = getDays(state.fromdate, state.todate);
         let res = calculateInterest(state);
         setState({
             ...state,
             interest: res.interest,
-            total: res.amount
+            total: res.amount,
+            days: days
         })
     }
 
     const handleClear = () => {
         setState(defaultFormData);
     }
-
-    //onload execution
-    useEffect(handleDays, []);
 
     return (
         <ICal>
@@ -111,40 +103,37 @@ const InterestCalculator = (props: InterestCalculatorProps): JSX.Element => {
                     <TextField id="no-of-days"
                         name="days"
                         label="Days"
-                        type="number"
-                        inputMode="decimal"
+                        type="text"
                         disabled={true}
-                        inputProps={textField("0.01", true)}
+                        inputProps={textField("0.01")}
                         InputLabelProps={textFieldLabel()}
                         value={state.days}
-                        onChange={handleChange}
                         variant="outlined" />
 
+                    <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={0}>
+                        <MobileDatePicker
+                            label="Date from"
+                            inputFormat="dd/MM/yyyy"
+                            value={state.fromdate}
+                            onChange={handleFromDateChange}
+                            className={"test"}
+                            renderInput={(params) => <TextField inputProps={dateField()}
+                                InputLabelProps={dateFieldLabel()} {...params}
+                                id={"from-date"} name="fromdate" />}
 
-                    <MobileDatePicker
-                        label="Date from"
-                        inputFormat="dd/MM/yyyy"
-                        value={state.fromdate}
-                        onChange={handleFromDateChange}
-                        onAccept={handleDays}
-                        className={"test"}
-                        renderInput={(params) => <TextField inputProps={dateField()}
-                            InputLabelProps={dateFieldLabel()} {...params}
-                            id={"from-date"} name="fromdate" />}
+                        />
 
-                    />
-
-                    <MobileDatePicker
-                        label="Date to"
-                        inputFormat="dd/MM/yyyy"
-                        value={state.todate}
-                        onChange={handleToDateChange}
-                        onAccept={handleDays}
-                        renderInput={(params) => <TextField inputProps={dateField()}
-                            InputLabelProps={dateFieldLabel()} {...params}
-                            id={"to-date"} name="todate" />}
-                    />
-
+                        <MobileDatePicker
+                            label="Date to"
+                            inputFormat="dd/MM/yyyy"
+                            value={state.todate}
+                            onChange={handleToDateChange}
+                            showToolbar={true}
+                            renderInput={(params) => <TextField inputProps={dateField()}
+                                InputLabelProps={dateFieldLabel()} {...params}
+                                id={"to-date"} name="todate" />}
+                        />
+                    </Stack>
                     <Typography variant="h6">
                         <Stack direction="row" spacing={2}>
                             <TotalHead>Interest:</TotalHead>

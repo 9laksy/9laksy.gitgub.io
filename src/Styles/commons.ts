@@ -7,7 +7,7 @@ export const ButtonStyle = {
 export const dateField = () => {
     return {
         style: {
-            color: 'rgb(255 100 0)',
+            color: 'rgb(25, 118, 210)',
             fontSize: 18,
             fontWeight: 'bold'
         }
@@ -24,11 +24,12 @@ export const dateFieldLabel = () => {
     }
 }
 
-export const textField = (step: string, readonly: boolean = false) => {
+export const textField = (step: string) => {
     return {
         step: step,
+        pattern: "[0-9.]*",
         style: {
-            color: 'rgb(255 100 0)',
+            color: 'rgb(25, 118, 210)',
             fontSize: 18,
             fontWeight: 'bold'
         }

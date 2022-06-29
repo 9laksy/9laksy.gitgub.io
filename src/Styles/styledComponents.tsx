@@ -7,7 +7,7 @@ export const ButtonStyle = {
 }
 
 export const TextColor = {
-    color: "rgb(255, 100, 0)"
+    color: "rgb(25, 118, 210)"
 }
 
 

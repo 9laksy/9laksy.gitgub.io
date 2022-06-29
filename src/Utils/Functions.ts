@@ -22,7 +22,7 @@ interface FormData {
 export function calculateInterest(data: FormData) {
     let amount = Number(data.amount);
     let interestRate = Number(data.interestRate);
-    let days = Number(data.days);
+    let days = getDays(data.fromdate, data.todate);
 
     let R = (interestRate / 100) / 30;
     let SI = round(((amount * R) * days));
