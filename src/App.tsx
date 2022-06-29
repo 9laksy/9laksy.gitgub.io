@@ -1,11 +1,8 @@
 import React from 'react';
-
 import Header from './components/Header';
-import Panel from './components/Panel/Panel';
-import PanelContent from './components/Panel/PanelContent';
 import PageWrapper from './components/PageWrapper';
-import PanelContainer from './components/Panel/PanelContainer';
 import InterestCalculator from './components/Forms/InterestCalculator';
+import { Card, CardContent } from './components/Card';
 
 
 function App() {
@@ -13,15 +10,15 @@ function App() {
     <div>
       <Header title={"Interest Calculator"} />
       <PageWrapper>
-        <PanelContainer>
-          <Panel>
-            <PanelContent>
-               <InterestCalculator />
-            </PanelContent>
-          </Panel>
-        </PanelContainer>
+        <Card>
+          <CardContent>
+            <InterestCalculator />
+          </CardContent>
+        </Card>
       </PageWrapper>
     </div>
   );
 }
+
+
 export default App;
