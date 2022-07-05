@@ -7,9 +7,9 @@ import { Calculate, Clear } from "@mui/icons-material";
 
 
 const Calculator = ():JSX.Element => {
-    const [amount, setAmount] = useState<Number | ''>('');
-    const [interest, setInterest] = useState<Number | ''>('');
-    const [days, setDays] = useState<Number | ''>('');
+    const [amount, setAmount] = useState<Number | String>("");
+    const [interest, setInterest] = useState<Number | String>("");
+    const [days, setDays] = useState<Number | String>("");
     const [fromdate, setFromdate] = useState<Date | null>(null);
     const [todate, setTodate] = useState<Date | null>(null);
     const [int, setInt] = useState<String>("");
