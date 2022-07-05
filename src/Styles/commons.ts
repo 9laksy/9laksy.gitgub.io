@@ -29,8 +29,8 @@ export const textField = (step: string) => {
         step: step,
         pattern: "[0-9.]*",
         style: {
-            color: 'rgb(25, 118, 210)',
-            fontSize: 18,
+            color: '#3D5AFE',
+            fontSize: 26,
             fontWeight: 'bold'
         }
     }
@@ -39,9 +39,10 @@ export const textField = (step: string) => {
 export const textFieldLabel = () => {
     return {
         style: {
-            color: '#000000',
-            fontSize: 18,
-            fontWeight: 'bold'
+            color: '#ff0065',
+            fontSize: 26,
+            fontWeight: 'bold',
+            backgroundColor: 'white',
         }
     }
 }
