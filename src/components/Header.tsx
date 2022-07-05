@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header = (props: HeaderProps): JSX.Element => {
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{ background: '#2E3B55' }}>
             <Toolbar variant="dense">
                 <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                     <MenuIcon />
