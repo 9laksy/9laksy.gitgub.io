@@ -1,13 +1,27 @@
 import { TextField } from "@mui/material";
 import React, { useCallback } from "react";
+import styled from "styled-components";
 import { textField, textFieldLabel } from "../../../Styles/commons";
 import { convertToSlug } from "../../../Utils/Functions";
 
+const MyText = styled(TextField)`
+  & label.Mui-focused {
+    color: #ff0065;
+    margin-top: -3px !important;
+    width: 50%;
+  }
+  
+  & .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: #ff0065;
+    }
+  }
+`;
 
 interface DecimalProps {
     label: String,
-    stateField: Number | '',
-    stateFnc: React.Dispatch<React.SetStateAction<"" | Number>>
+    stateField: Number | String,
+    stateFnc: React.Dispatch<React.SetStateAction<String | Number>>
 }
 
 const Decimal = ({label, stateField, stateFnc}: DecimalProps): JSX.Element => {
@@ -17,7 +31,7 @@ const Decimal = ({label, stateField, stateFnc}: DecimalProps): JSX.Element => {
       }, [stateFnc])
 
     return (
-        <TextField 
+        <MyText 
         color={"primary"} 
         id={convertToSlug(label)} 
         name={convertToSlug(label)}
