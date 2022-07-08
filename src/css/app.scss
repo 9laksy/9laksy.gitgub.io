@@ -1,0 +1,24 @@
+/* Custom color theme properties */
+:root {
+  --f7-theme-color: rgb(238, 53, 15);
+  --f7-theme-color-rgb: 238, 53, 15;
+  --f7-theme-color-shade: rgb(199, 39, 8);
+  --f7-theme-color-tint: rgb(223, 42, 6);
+  --f7-navbar-height: 70px;
+  --f7-navbar-title-font-size: 1.5rem;
+  --f7-input-font-size: 20px;
+}
+
+/* Your app custom styles here */
+.list .item-label, .list .item-floating-label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.list .item-input-focused .item-floating-label, .list .item-input-with-value .item-floating-label {
+  font-weight: normal;
+  color: gray;
+}
+
+.text-theme {
+  color: var(--f7-theme-color);
+}
