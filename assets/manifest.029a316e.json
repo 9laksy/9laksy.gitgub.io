@@ -3,7 +3,7 @@
   "short_name": "Interest Calculator",
   "description": "Interest Calculator",
   "lang": "en-US",
-  "start_url": "/",
+  "start_url": "/icr",
   "display": "standalone",
   "background_color": "#ff5300",
   "theme_color": "#ff5300",
